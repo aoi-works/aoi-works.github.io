@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aoi Works｜葵</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:      #f7f0e2;
+    --paper-dark: #ede0c4;
+    --ink:        #1c1610;
+    --gold:       #b8924a;
+    --gold-light: #d4af72;
+    --gold-pale:  #e8d9b8;
+    --muted:      #5a4a30;
+    --rule:       rgba(184,146,74,0.2);
+    --serif-en:   'Cormorant Garamond', Georgia, serif;
+    --serif-jp:   'Noto Serif JP', serif;
+    --mono:       'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif-jp);
+    font-weight: 300;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+  }
+
+  .mono { font-family: var(--mono); }
+  .en   { font-family: var(--serif-en); }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 3rem;
+    background: linear-gradient(to bottom, rgba(247,240,226,0.97), transparent);
+  }
+
+  .nav-logo {
+    font-family: var(--serif-en);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-contact {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.45rem 1.1rem;
+    transition: all 0.3s;
+  }
+  .nav-contact:hover { background: var(--gold); color: var(--paper); border-color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-top-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light), transparent);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-headline {
+    font-family: var(--serif-en);
+    font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+    color: var(--ink);
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s forwards;
+    line-height: 2;
+  }
+
+  .hero-tagline {
+    font-family: var(--serif-en);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--gold-light);
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+    margin-bottom: 3rem;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.2s forwards;
+  }
+  .hero-scroll span {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    padding: 7rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .about-headline {
+    font-family: var(--serif-en);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    color: var(--ink);
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 2;
+  }
+
+  .about-tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--rule);
+    padding: 0.4rem 1rem;
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    padding: 7rem 3rem;
+    background: rgba(184,146,74,0.04);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .services-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 3rem;
+  }
+
+  .card {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--rule);
+    position: relative;
+    transition: background 0.3s;
+  }
+  .card:last-child { border-right: none; }
+  .card:hover { background: rgba(184,146,74,0.05); }
+
+  .card.coming {
+    opacity: 0.65;
+  }
+
+  .card-num {
+    font-family: var(--serif-en);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-family: var(--serif-jp);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+
+  .card-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.3s;
+  }
+  .card-link:hover { border-color: var(--gold); }
+
+  .card-coming {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+  }
+
+  /* ─── PROFILE ─── */
+  #profile {
+    padding: 7rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .profile-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .profile-icon {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--paper), var(--paper-dark));
+    border: 1px solid var(--gold-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .profile-icon-char {
+    font-family: var(--serif-jp);
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .profile-icon-sub {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+  }
+
+  .profile-name {
+    font-family: var(--serif-en);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .profile-text {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 2.1;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    padding: 7rem 3rem 6rem;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid var(--rule);
+    background: rgba(184,146,74,0.03);
+  }
+
+  #contact::before {
+    content: '葵';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif-jp);
+    font-size: 20vw;
+    color: rgba(184,146,74,0.05);
+    pointer-events: none;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-headline {
+    font-family: var(--serif-en);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+
+  .contact-headline em { font-style: italic; color: var(--gold); }
+
+  .contact-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn:hover { background: var(--gold-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo {
+    font-family: var(--serif-en);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50%       { opacity: 1; }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    nav { padding: 1.2rem 1.5rem; }
+    #hero, #about, #services, #profile, #contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .cards { grid-template-columns: 1fr; }
+    .card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .card:last-child { border-bottom: none; }
+    .profile-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .profile-icon { max-width: 120px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Aoi Works｜葵</a>
+  <a class="nav-contact" href="#contact">お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-top-line"></div>
+<section id="hero">
+  <p class="hero-eyebrow">GHOSTWRITING · BILINGUAL · MEDIA 10+ YEARS</p>
+  <h1 class="hero-headline">
+    あなたの言葉で、<br>
+    <em>あなたが書かない。</em>
+  </h1>
+  <p class="hero-sub">
+    経営者の「届けたい思い」を、<br>読まれる言葉に変換する専門家です。
+  </p>
+  <p class="hero-tagline en">Aoi Works｜葵</p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">ABOUT</p>
+  <h2 class="about-headline reveal">
+    代筆ではなく、<em class="en" style="font-style:italic;">翻訳</em>。
+  </h2>
+  <p class="about-body reveal">
+    メディア歴10年以上、日英バイリンガル。<br>
+    経営者の思考を、その人にしか書けない言葉で届けます。<br><br>
+    フォロワーの数より、読んだ人の密度で信頼は積まれる。<br>
+    その密度を作るのが、私の仕事です。
+  </p>
+  <div class="about-tags reveal">
+    <span class="tag">MEDIA 10+ YEARS</span>
+    <span class="tag">BILINGUAL JP / EN</span>
+    <span class="tag">NDA GUARANTEED</span>
+    <span class="tag">CONFIDENTIAL</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <p class="section-label reveal">SERVICES</p>
+
+    <div class="cards reveal">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-num en">01</div>
+        <h3 class="card-title">経営者SNS<br>ゴーストライティング</h3>
+        <p class="card-desc">
+          経営者のX・LinkedIn投稿を、<br>
+          その人にしか書けない言葉で代わりに書きます。<br>
+          月1回のヒアリングで、<br>
+          毎週あなたの言葉が届き続けます。
+        </p>
+        <a href="#" class="card-link">詳しく見る →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card coming">
+        <div class="card-num en">02</div>
+        <h3 class="card-title">英語IR・<br>プレスリリース代行</h3>
+        <p class="card-desc">
+          日本語で話してください。<br>
+          英語で投資家・メディアに届けます。<br>
+          翻訳ではなく、<br>
+          刺さるストーリーを作ります。
+        </p>
+        <span class="card-coming">準備中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PROFILE -->
+<section id="profile">
+  <p class="section-label reveal">PROFILE</p>
+  <div class="profile-inner reveal">
+    <div class="profile-icon">
+      <span class="profile-icon-char">葵</span>
+      <span class="profile-icon-sub">AOI WORKS</span>
+    </div>
+    <div>
+      <p class="profile-name">Aoi Works｜葵</p>
+      <p class="profile-text">
+        メディア業界で10年以上、文章を書いてきた。<br><br>
+        その間に気づいたのは、「書く技術」より<br>
+        「その人の核心を引き出す技術」の方が<br>
+        圧倒的に難しいということ。<br><br>
+        上手い文章を書ける人は多い。<br>
+        でも「この人にしか書けない文章」を<br>
+        代わりに書ける人は少ない。<br><br>
+        全クライアントNDA締結。守秘義務厳守。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="contact-label reveal">CONTACT</p>
+  <h2 class="contact-headline reveal">
+    まず、話してみてください。<br>
+    <em>30分で変わるものがあります。</em>
+  </h2>
+  <p class="contact-sub reveal">
+    売り込みは一切しません。<br>
+    あなたの発信の悩みを聞いて、<br>
+    私にできることをお伝えするだけです。
+  </p>
+  <div class="reveal">
+    <a href="mailto:contact@aoiworks.jp" class="btn">お問い合わせはこちら</a>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">Aoi Works｜葵</span>
+  <p>© 2026 Aoi Works. All rights reserved. Confidentiality guaranteed.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
