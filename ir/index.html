@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="英語IR・プレスリリース代行｜Aoi Works｜葵">
+<meta property="og:description" content="経営者の言葉を、投資家とメディアへ。日英バイリンガル・メディア歴10年以上。">
+<meta property="og:image" content="https://aoi-works.github.io/img/og-image.png">
+<meta property="og:url" content="https://aoi-works.github.io/ir.html">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<title>英語IR・プレスリリース代行｜Aoi Works｜葵</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  /* ─── IR PAGE SPECIFIC ─── */
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s;
+  }
+  .service-card:nth-child(2n) { border-right: none; }
+  .service-card:nth-last-child(-n+2) { border-bottom: none; }
+  .service-card:hover { background: rgba(184,146,74,0.05); }
+  .service-card.coming { opacity: 0.55; }
+
+  .service-card-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .service-card-title {
+    font-family: var(--serif-jp);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+
+  .service-card-desc {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card-price {
+    font-family: var(--serif-en);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #1a0f00;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+
+  .service-card-price-note {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .service-card-coming {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+  }
+
+  .price-note {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 1.5rem;
+    line-height: 1.9;
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold-pale);
+  }
+
+  /* ─── HOW IR ─── */
+  #how-ir {
+    padding: 7rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ─── WHAT IR ─── */
+  #what-ir {
+    padding: 7rem 3rem;
+    background: rgba(184,146,74,0.04);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .what-ir-inner { max-width: 860px; margin: 0 auto; }
+
+  /* ─── PRICING IR ─── */
+  #pricing-ir {
+    padding: 7rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ─── FAQ IR ─── */
+  #faq-ir {
+    padding: 7rem 3rem;
+    border-top: 1px solid var(--rule);
+    background: rgba(184,146,74,0.02);
+  }
+
+  .faq-ir-inner { max-width: 680px; margin: 0 auto; }
+
+  /* ─── FOOTER CTA IR ─── */
+  #footer-cta-ir {
+    padding: 8rem 3rem 6rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #footer-cta-ir::before {
+    content: '葵';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif-jp);
+    font-size: 22vw;
+    font-weight: 300;
+    color: rgba(184,146,74,0.05);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  @media (max-width: 700px) {
+    .service-grid { grid-template-columns: 1fr; }
+    .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .service-card:last-child { border-bottom: none; }
+    #how-ir, #what-ir, #pricing-ir, #footer-cta-ir { padding-left: 1.5rem; padding-right: 1.5rem; }
+    #faq-ir { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-top-line"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="../index.html">Aoi Works｜葵</a>
+  <a class="nav-back" href="../index.html">← サービス一覧に戻る</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">SERVICE 02 — IR · PRESS RELEASE</p>
+  <h1 class="hero-headline">
+    経営者の言葉を、<br>
+    <em>投資家とメディアへ。</em>
+  </h1>
+  <p class="hero-sub">
+    日本語で話してください。<br>
+    英語で、世界に届けます。<br>
+    翻訳ではなく、伝わるストーリーを作ります。
+  </p>
+  <div class="hero-cta-group">
+    <a href="#contact-ir" class="btn-primary">まず相談する（無料）</a>
+    <a href="#pricing-ir" class="btn-ghost-link">料金を見る →</a>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PAIN -->
+<section id="pain">
+  <p class="section-label reveal">DOES THIS SOUND FAMILIAR?</p>
+
+  <div class="pain-grid reveal">
+    <div class="pain-item">
+      <p class="pain-check">✓ CHECK</p>
+      <p class="pain-text">英語で発信したいが、機械翻訳では「伝わる英語」にならない。</p>
+    </div>
+    <div class="pain-item">
+      <p class="pain-check">✓ CHECK</p>
+      <p class="pain-text">海外投資家・メディアにアプローチしたいが、何をどう伝えればいいかわからない。</p>
+    </div>
+    <div class="pain-item">
+      <p class="pain-check">✓ CHECK</p>
+      <p class="pain-text">社内に英語が書ける人間がいない、またはコアな業務に集中させたい。</p>
+    </div>
+    <div class="pain-item">
+      <p class="pain-check">✓ CHECK</p>
+      <p class="pain-text">プレスリリースや会社概要を英語で出したいが、クオリティに自信が持てない。</p>
+    </div>
+  </div>
+
+  <p class="pain-closer reveal">
+    "Translation gets the words right.<br>
+    Storytelling gets the message through."
+  </p>
+
+  <div class="pain-insight reveal" style="margin-top:2.5rem; padding:2rem; border:1px solid var(--gold-pale); background:rgba(184,146,74,0.04);">
+    <p style="font-size:0.95rem;font-weight:400;color:var(--muted);line-height:2;">
+      投資家は、正しい英語より<br>
+      「<strong style="color:var(--ink);">この会社、わかってる</strong>」という感覚で動きます。<br><br>
+      その感覚は、文法チェックでは生まれない。<br>
+      事業の文脈を理解した上で書かれた英語にしか、出せないものです。
+    </p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- WHAT -->
+<section id="what-ir">
+  <div class="what-ir-inner">
+    <p class="section-label reveal">WHAT I DO</p>
+    <h2 class="what-headline reveal">翻訳ではなく、編集。</h2>
+    <p class="what-sub reveal">
+      メディア歴10年以上、日英バイリンガル。<br>
+      あなたの事業の本質を理解した上で、<br>
+      投資家とメディアが「読みたい」英語に変換します。
+    </p>
+
+    <!-- Comparison table -->
+    <div class="reveal" style="overflow-x:auto;margin-bottom:3.5rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+        <thead>
+          <tr>
+            <th style="padding:0.8rem 1rem;text-align:left;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.15em;color:var(--gold);font-weight:400;"></th>
+            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">翻訳会社</th>
+            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">AI翻訳</th>
+            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">フリーランス翻訳者</th>
+            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--gold);font-weight:400;">Aoi Works｜葵</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);font-weight:400;">スピード</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">遅い</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">速い</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">中程度</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">速い</td>
+          </tr>
+          <tr>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);font-weight:400;">投資家・メディアの視点</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">ない</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">ない</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">薄い</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">あり（メディア出身）</td>
+          </tr>
+          <tr>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);font-weight:400;">日英の文脈理解</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">形式的</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">表面的</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">バラバラ</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">バイリンガル一貫</td>
+          </tr>
+          <tr>
+            <td style="padding:0.8rem 1rem;color:var(--muted);font-weight:400;">ストーリー構成力</td>
+            <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">ない</td>
+            <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">ない</td>
+            <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">運次第</td>
+            <td style="padding:0.8rem 1rem;text-align:center;color:var(--gold);font-weight:400;">核心の強み</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="benefit-list">
+      <div class="benefit-item reveal">
+        <div class="benefit-num">01</div>
+        <div class="benefit-body">
+          <h3>「読まれる英語」を書く</h3>
+          <p>正確な翻訳と、刺さるコピーライティングは別物です。投資家やジャーナリストが実際に読む英語の文体・構成・トーンを熟知した上で、あなたの言葉を再構築します。</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-num">02</div>
+        <div class="benefit-body">
+          <h3>事業の本質から書く</h3>
+          <p>ヒアリングを通じて事業の背景・哲学・強みを理解します。表面的な情報を英訳するのではなく、「なぜこの会社なのか」というストーリーを英語で構築します。</p>
+        </div>
+      </div>
+      <div class="benefit-item reveal">
+        <div class="benefit-num">03</div>
+        <div class="benefit-body">
+          <h3>守秘義務は標準</h3>
+          <p>全クライアントとNDA締結済み。未公開情報・経営戦略・財務情報など、センシティブな内容も安心してご共有いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- HOW -->
+<section id="how-ir">
+  <p class="section-label reveal">THE PROCESS</p>
+  <h2 class="how-headline reveal">日本語で話すだけでいい。</h2>
+
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-dot">01</div>
+      <div class="step-content">
+        <h3>無料ヒアリング（30分）</h3>
+        <p>まず事業内容・発信の目的・ターゲットを聞かせてください。何をどう伝えるべきかの方向性を一緒に整理します。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-dot">02</div>
+      <div class="step-content">
+        <h3>素材の共有</h3>
+        <p>日本語の素材（既存の資料・メモ・箇条書き）をお送りください。ゼロから書く場合はヒアリングのみで対応します。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-dot">03</div>
+      <div class="step-content">
+        <h3>英語原稿の作成・納品</h3>
+        <p>ご要望に応じた英語原稿を作成し、納品します。確認・修正のやり取りを経て最終版を完成させます。</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-dot">04</div>
+      <div class="step-content">
+        <h3>発信・配信</h3>
+        <p>発信作業はクライアントご自身が行います。配信先の選定や発信タイミングのアドバイスも対応可能です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PRICING -->
+<section id="pricing-ir">
+  <p class="section-label reveal">SERVICES & PRICING</p>
+  <h2 class="pricing-headline reveal">サービスと料金目安。</h2>
+  <p class="pricing-sub reveal">内容・分量・納期によりお見積りします。まずはご相談ください。</p>
+
+  <div class="service-grid reveal">
+    <!-- Card 1 -->
+    <div class="service-card">
+      <p class="service-card-label">PRESS RELEASE</p>
+      <h3 class="service-card-title">英語プレスリリース</h3>
+      <p class="service-card-desc">
+        新製品・新サービス・資金調達・人事など、海外メディアに向けた英語プレスリリースを作成します。
+        AP通信スタイルに準拠した読まれるフォーマットで。
+      </p>
+      <p class="service-card-price">¥30,000<span style="font-size:1rem;color:var(--muted);">〜</span></p>
+      <p class="service-card-price-note">/ 1本</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="service-card">
+      <p class="service-card-label">INVESTOR MATERIALS</p>
+      <h3 class="service-card-title">投資家向け英語事業説明資料</h3>
+      <p class="service-card-desc">
+        海外投資家向けの事業説明・会社紹介資料のテキストを作成します。
+        事業の魅力と独自性が伝わるストーリー構成で。
+      </p>
+      <p class="service-card-price">¥80,000<span style="font-size:1rem;color:var(--muted);">〜</span></p>
+      <p class="service-card-price-note">/ 1式</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card">
+      <p class="service-card-label">COMPANY PROFILE</p>
+      <h3 class="service-card-title">英語での会社概要・CEOメッセージ</h3>
+      <p class="service-card-desc">
+        Webサイト掲載や海外パートナーへの紹介用に、
+        会社概要・CEOメッセージ・企業理念の英語版を作成します。
+      </p>
+      <p class="service-card-price">¥30,000<span style="font-size:1rem;color:var(--muted);">〜</span></p>
+      <p class="service-card-price-note">/ 1式</p>
+    </div>
+
+    <!-- Card 4 coming -->
+    <div class="service-card coming">
+      <p class="service-card-label">COMING SOON</p>
+      <h3 class="service-card-title">英語ピッチデック用テキスト</h3>
+      <p class="service-card-desc">
+        スタートアップの資金調達向けに、
+        投資家の心を動かすピッチデックのテキスト構成・作成。
+      </p>
+      <span class="service-card-coming">準備中</span>
+    </div>
+  </div>
+
+  <p class="price-note reveal">
+    ※料金はすべて税別・目安です。内容・分量・納期により変動します。<br>
+    まずはお気軽にご相談ください。お見積りは無料です。
+  </p>
+</section>
+
+<hr class="rule">
+
+<!-- FAQ -->
+<section id="faq-ir">
+  <div class="faq-ir-inner">
+    <p class="section-label reveal">FAQ</p>
+    <h2 class="faq-headline reveal">よくある質問</h2>
+
+    <div class="faq-item reveal">
+      <p class="faq-q">日本語の素材がない状態でも依頼できますか？</p>
+      <p class="faq-a">はい、大丈夫です。ヒアリングで必要な情報をお聞きしながら、一から英語で作成します。箇条書きのメモや、話した内容をもとに構成します。</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">ネイティブチェックはしてもらえますか？</p>
+      <p class="faq-a">必要に応じてネイティブスピーカーによるチェックを手配することも可能です。ご要望の際はご相談ください。別途費用が発生します。</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">上場企業のIR開示書類にも対応できますか？</p>
+      <p class="faq-a">金融商品取引法に基づく法定開示書類（有価証券報告書の英訳等）は対応範囲外です。投資家向けの事業説明資料・会社紹介・プレスリリースなど、法定開示以外の英語コミュニケーション全般に対応します。</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">納期はどのくらいですか？</p>
+      <p class="faq-a">内容・分量によりますが、プレスリリース1本で5〜7営業日が目安です。急ぎの場合はご相談ください。</p>
+    </div>
+    <div class="faq-item reveal">
+      <p class="faq-q">守秘義務はありますか？</p>
+      <p class="faq-a">全クライアントとNDA締結済みです。未公開情報・経営戦略・財務情報など、センシティブな内容も安心してご共有いただけます。契約終了後も守秘義務は継続します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section id="footer-cta-ir">
+  <p class="footer-label reveal">READY TO START?</p>
+  <h2 class="footer-headline reveal">
+    まず、話してみてください。<br>
+    <em>日本語で、大丈夫です。</em>
+  </h2>
+  <p class="footer-sub reveal">
+    どんな内容でも、まずご相談ください。<br>
+    お見積りは無料です。
+  </p>
+  <div class="reveal" id="contact-ir">
+    <a href="mailto:aoi.works.jp@gmail.com?subject=IR・プレスリリース相談希望" class="btn-primary">
+      無料相談はこちら
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="logo">Aoi Works｜葵</span>
+  <p>© 2026 Aoi Works. All rights reserved. Confidentiality guaranteed.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
