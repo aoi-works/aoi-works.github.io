@@ -149,6 +149,39 @@
     pointer-events: none;
   }
 
+  /* ─── BUTTONS ─── */
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost-link {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .btn-ghost-link:hover { color: var(--gold); }
+
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+
   @media (max-width: 700px) {
     .service-grid { grid-template-columns: 1fr; }
     .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
@@ -248,7 +281,7 @@
             <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">翻訳会社</th>
             <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">AI翻訳</th>
             <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--muted);font-weight:400;">フリーランス翻訳者</th>
-            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--gold);font-weight:400;">Aoi Works｜葵</th>
+            <th style="padding:0.8rem 1rem;text-align:center;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:#1a1208;font-weight:700;background:rgba(184,146,74,0.08);">Aoi Works｜葵</th>
           </tr>
         </thead>
         <tbody>
@@ -257,28 +290,28 @@
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">遅い</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">速い</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">中程度</td>
-            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">速い</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:#1a1208;font-weight:700;background:rgba(184,146,74,0.08);">速い</td>
           </tr>
           <tr>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);font-weight:400;">投資家・メディアの視点</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">ない</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">ない</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">薄い</td>
-            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">あり（メディア出身）</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:#1a1208;font-weight:700;background:rgba(184,146,74,0.08);">あり（メディア出身）</td>
           </tr>
           <tr>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);color:var(--muted);font-weight:400;">日英の文脈理解</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">形式的</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">表面的</td>
             <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--muted);">バラバラ</td>
-            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:var(--gold);font-weight:400;">バイリンガル一貫</td>
+            <td style="padding:0.8rem 1rem;border-bottom:1px solid var(--rule);text-align:center;color:#1a1208;font-weight:700;background:rgba(184,146,74,0.08);">バイリンガル一貫</td>
           </tr>
           <tr>
             <td style="padding:0.8rem 1rem;color:var(--muted);font-weight:400;">ストーリー構成力</td>
             <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">ない</td>
             <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">ない</td>
             <td style="padding:0.8rem 1rem;text-align:center;color:var(--muted);">運次第</td>
-            <td style="padding:0.8rem 1rem;text-align:center;color:var(--gold);font-weight:400;">核心の強み</td>
+            <td style="padding:0.8rem 1rem;text-align:center;color:#1a1208;font-weight:700;background:rgba(184,146,74,0.08);">核心の強み</td>
           </tr>
         </tbody>
       </table>
