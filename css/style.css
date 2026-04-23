@@ -61,6 +61,17 @@
     text-decoration: none;
   }
 
+
+  .nav-back {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-back:hover { color: var(--gold); }
+
   .nav-contact {
     font-family: var(--mono);
     font-size: 0.65rem;
